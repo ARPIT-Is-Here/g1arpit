@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>ADDING XML DOCUMENT</title>
+<script language="JavaScript">
+function fun() {
+    window.alert("You have selected the book");
+}
+</script>
+</head>
+
+<body>
+<script language="JavaScript">
+var xmldoc;
+xmldoc = new ActiveXObject("Microsoft.XMLDOM");
+xmldoc.load("book.xml");
+
+var items = xmldoc.getElementsByTagName("ITEM");
+
+for (i = 0; i < items.length; i++) {
+
+    document.write("<div align='left'><img src='sunset.jpg' width='50' height='50'></div>");
+
+    document.write("<b>NAME :</b> " +
+        xmldoc.getElementsByTagName("NAME")[i].childNodes[0].nodeValue +
+        "<br><div>");
+
+    document.write("<b>AUTHOR :</b> " +
+        xmldoc.getElementsByTagName("AUTHOR")[i].childNodes[0].nodeValue +
+        "<br><div>");
+
+    document.write("<b>PRICE :</b> " +
+        xmldoc.getElementsByTagName("PRICE")[i].childNodes[0].nodeValue +
+        "<br><div>");
+
+    document.write("<b>PUBLISHER :</b> " +
+        xmldoc.getElementsByTagName("PUBLISHER")[i].childNodes[0].nodeValue +
+        "<br><div>");
+
+    document.write("<b>ISBN :</b> " +
+        xmldoc.getElementsByTagName("ISBN")[i].childNodes[0].nodeValue +
+        "<br><div>");
+
+    document.write("<div align='right'><input type='button' value='Add To Cart' onclick='fun()'></div>");
+    document.write("<br>");
+}
+</script>
+</body>
+</html>

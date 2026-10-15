@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Registration Form</title>
+    <style>
+        /* --- GENERAL PAGE STYLES --- */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* Purple gradient background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Ensures the page takes up full height */
+            margin: 0;
+            padding: 20px; /* Prevents form from touching edges on mobile */
+        }
+
+        /* --- THE FORM CONTAINER --- */
+        .registration-container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2); /* Drop shadow for 3D effect */
+            width: 100%;
+            max-width: 500px; /* Limits width so it doesn't get too wide on desktop */
+        }
+
+        /* --- HEADINGS --- */
+        .registration-container h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .registration-container p {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 0.9rem;
+        }
+
+        /* --- FORM GROUPS (Labels + Inputs) --- */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block; /* Puts label on its own line above input */
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        /* --- INPUTS & SELECTS --- */
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        select {
+            width: 100%; /* Full width of container */
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box; /* Ensures padding doesn't break width */
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        /* Change border color when user clicks inside */
+        input:focus, select:focus {
+            border-color: #764ba2;
+            outline: none;
+        }
+
+        /* --- RADIO BUTTONS & CHECKBOXES --- */
+        .radio-group, .checkbox-group {
+            display: flex;
+            gap: 15px; /* Space between options */
+            margin-top: 5px;
+        }
+
+        .radio-group label, .checkbox-group label {
+            font-weight: normal; /* Lighter text for options */
+            cursor: pointer;
+        }
+
+        /* --- SUBMIT BUTTON --- */
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background-color: #764ba2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #5a3780; /* Darker purple on hover */
+        }
+
+        /* --- FOOTER TEXT --- */
+        .footer-text {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 12px;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="registration-container">
+        <h2>Summer Tech Camp</h2>
+        <p>Join us for a weekend of coding and design. Secure your spot now!</p>
+
+        <form action="#" method="POST">
+            
+            <!-- Full Name -->
+            <div class="form-group">
+                <label for="fullname">Full Name</label>
+                <input type="text" id="fullname" name="fullname" placeholder="e.g. John Doe" required>
+            </div>
+
+            <!-- Email Address -->
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="e.g. john@example.com" required>
+            </div>
+
+            <!-- Age -->
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="number" id="age" name="age" min="16" max="99" placeholder="18">
+            </div>
+
+            <!-- Ticket Type (Dropdown) -->
+            <div class="form-group">
+                <label for="ticket-type">Ticket Type</label>
+                <select id="ticket-type" name="ticket-type" required>
+                    <option value="" disabled selected>Select an option</option>
+                    <option value="general">General Admission ($50)</option>
+                    <option value="vip">VIP Access ($120)</option>
+                    <option value="student">Student Pass ($25)</option>
+                </select>
+            </div>
+
+            <!-- T-Shirt Size (Radio Buttons) -->
+            <div class="form-group">
+                <label>T-Shirt Size</label>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="size" value="s"> Small
+                    </label>
+                    <label>
+                        <input type="radio" name="size" value="m" checked> Medium
+                    </label>
+                    <label>
+                        <input type="radio" name="size" value="l"> Large
+                    </label>
+                </div>
+            </div>
+
+            <!-- Interests (Checkboxes) -->
+            <div class="form-group">
+                <label>Workshops Interested In</label>
+                <div class="checkbox-group">
+                    <label>
+                        <input type="checkbox" name="interest" value="html"> HTML/CSS
+                    </label>
+                    <label>
+                        <input type="checkbox" name="interest" value="js"> JavaScript
+                    </label>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="submit-btn">Register Now</button>
+
+        </form>
+
+        <div class="footer-text">
+            <p>We respect your privacy. No spam.</p>
+        </div>
+    </div>
+
+</body>
+</html>
